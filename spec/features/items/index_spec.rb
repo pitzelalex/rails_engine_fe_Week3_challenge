@@ -22,7 +22,7 @@ RSpec.describe 'Item Index page', type: :feature do
         click_link items[:data].first[:attributes][:name]
       end
 
-      expect(current_path).to eq(item_path(itemss[:data].first[:id]))
+      expect(current_path).to eq(item_path(items[:data].first[:id]))
     end
   end
 end
