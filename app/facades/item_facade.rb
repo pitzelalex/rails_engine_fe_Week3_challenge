@@ -9,6 +9,14 @@ class ItemFacade
     end
   end
 
+  def self.show(id)
+    data = ItemService.show(id)
+
+    item = data[:data]
+
+    Item.new(item)
+  end
+
   def self.index_by_merchant(id)
     data = ItemService.index_by_merchant(id)
 
