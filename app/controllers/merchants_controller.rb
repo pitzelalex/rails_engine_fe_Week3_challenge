@@ -3,6 +3,9 @@
 # Merchants Controller
 class MerchantsController < ApplicationController
   def index
-    @mercahnts = MerchantFacade.all
+    @merchants ||= MerchantFacade.all
+  end
+
+  def show
   end
 end

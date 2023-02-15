@@ -1,6 +1,6 @@
 <h1>Merchants</h1>
 <div id='merchants'>
-  <%= @movies.each do |movie| %>
-    <% binding.pry %>
+  <%= @merchants.each do |merchant| %>
+    <%= link_to merchant.name, merchant_path(merchant.id) %>
   <% end %>
 </div>

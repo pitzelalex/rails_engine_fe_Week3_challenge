@@ -15,6 +15,14 @@ RSpec.describe 'Merchant Index page', type: :feature do
         expect(page).to have_content(merchants[:data].last[:attributes][:name])
       end
     end
-    it 'links to each merchants show page'
+    it 'links to each merchants show page' do
+      visit merchants_path
+
+      within '#merchants' do
+        click_link merchants[:data].first[:attributes][:name]
+      end
+
+      expect(current_path).to eq(merchant_path(merchants[:data].first[:id]))
+    end
   end
 end
