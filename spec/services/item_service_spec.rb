@@ -40,4 +40,15 @@ RSpec.describe ItemService do
     expect(response[:data].last[:attributes][:unit_price]).to eq(906.17)
     expect(response[:data].last[:attributes][:merchant_id]).to eq(9)
   end
+
+  it "can return a single item's data" do
+    response ||= ItemService.show(69)
+
+    expect(response[:data][:id]).to eq('69')
+    expect(response[:data][:type]).to eq('item')
+    expect(response[:data][:attributes][:name]).to eq('Item Voluptas Provident')
+    expect(response[:data][:attributes][:description]).to eq('Eum vero laudantium reiciendis. Et neque aut ut. Et iusto sunt inventore omnis possimus. Dolorem voluptatibus error debitis sit sunt consequatur. Officiis fuga at ab ullam quia numquam eum.')
+    expect(response[:data][:attributes][:unit_price]).to eq(560.89)
+    expect(response[:data][:attributes][:merchant_id]).to eq(3)
+  end
 end
