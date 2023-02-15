@@ -9,10 +9,20 @@ RSpec.describe 'Item Index page', type: :feature do
       expect(page).to have_content('Items')
 
       within '#items' do
-        expect(page).to have_content(merchants[:data].first[:attributes][:name])
+        expect(page).to have_content(items[:data].first[:attributes][:name])
 
-        expect(page).to have_content(merchants[:data].last[:attributes][:name])
+        expect(page).to have_content(items[:data].last[:attributes][:name])
       end
+    end
+
+    it 'links to each items show page' do
+      visit items_path
+
+      within '#items' do
+        click_link items[:data].first[:attributes][:name]
+      end
+
+      expect(current_path).to eq(item_path(itemss[:data].first[:id]))
     end
   end
 end
