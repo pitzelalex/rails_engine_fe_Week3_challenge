@@ -3,6 +3,11 @@ class ItemService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.show(id)
+    response = Faraday.get("http://localhost:3000/api/v1/items/#{id}")
+    parse(response)
+  end
+
   def self.index
     response = Faraday.get('http://localhost:3000/api/v1/items')
     parse(response)
