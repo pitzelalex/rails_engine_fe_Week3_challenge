@@ -5,7 +5,6 @@ RSpec.describe 'Merchant Show page', type: :feature do
   describe 'as a visitor' do
     it 'displays a list of items this merchant sells' do
       visit merchant_path(99)
-      # require 'pry'; binding.pry
 
       expect(page).to have_content('Fahey-Stiedemann')
 
